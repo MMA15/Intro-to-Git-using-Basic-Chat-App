@@ -1,18 +1,29 @@
+<head>
+	<link rel = "stylesheet" href="style.css">
+</head>
+
 <body>
 	<title> Username </title>
 	<form>
-		<input type="text" id="user">
-		<button> Submit </button>
+		<label for = "user">Enter Username: </label>
+		<input type = "text" id = "user" required>
+		<button type = "submit"> Submit </button>
 	</form>
-	<p> Username is :  </p>
+	<p></p>
 
 </body>
 
 <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 <script>
-	$("button").click(function() {
+	var user_log = [];
+	$("form").submit(function() {
 		var Username = $('#user').val();
-		$('p').append(Username);
+		if (!user_log.includes(Username)){
+			user_log.push(Username);
+			$('p').html("Username is: " + Username)
+		} else{
+			$('p').html("User already exists. Try again.");
+		}
 		return false;
 	})
 </script>
