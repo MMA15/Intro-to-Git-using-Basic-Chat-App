@@ -9,7 +9,7 @@ $('.userform').submit(function(e) {
 			$('.userform').fadeOut();
 			$('.messagearea').show();
 		}else{
-			$('p').html("User already exists. Try again." + user_log); //not showing up now, double (olduser msg plus newuser msg on old user screen) thing still happening
+			$('p').html("User already exists. Try again."); //not showing up now, double (olduser msg plus newuser msg on old user screen) thing still happening
 		}
 	});
 	return false;
