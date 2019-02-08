@@ -3,14 +3,21 @@
 </head>
 <body>
 	<main>
+		<form class="userform">
+			<label for = "user">Enter Username: </label>
+			<input type = "text" id = "user" required>
+			<button type = "submit"> Submit </button>
+			<p></p>
+		</form>
+
 		<ol id="history">
 			<li> MM says: Sup </li>
 			<li> DD says: Nm, you? </li>
 			<li> MM says: Cool, let's do nothing at all </li>
 			<li> DD says: Waaay, ahead of you bro </li>
 		</ol>
-		<form>
-			<input id="initials" maxlength = "2">
+		<form class="messagearea">
+			<!--<input id="initials" maxlength = "2">-->
 			<input id="message">
 			<button>Send</button>
 		</form>
