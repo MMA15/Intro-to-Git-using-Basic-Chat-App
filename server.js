@@ -17,7 +17,6 @@ io.on('connection', function(socket){
 		} else{
 			callback(true);
 			user_log.push(username);
-			io.emit('login', username);
 		}
 	});
 });
@@ -31,3 +30,4 @@ io.on('connection', function(socket){
 server.listen(8080, '0.0.0.0', function(){
 	console.log('Chat server running');
 });
+

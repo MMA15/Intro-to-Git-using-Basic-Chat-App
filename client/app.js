@@ -8,6 +8,7 @@ $('.userform').submit(function(e) {
 		if (usernames){
 			$('.userform').fadeOut();
 			$('.messagearea').show();
+			socket.user = username;
 		}else{
 			$('p').html("User already exists. Try again."); //not showing up now, double (olduser msg plus newuser msg on old user screen) thing still happening
 		}
@@ -15,14 +16,13 @@ $('.userform').submit(function(e) {
 	return false;
 });
 
-socket.on('login', function(username){
-	$('.messagearea').submit(function(e){
-		e.preventDefault();
-		var text = $('#message').val();
-		socket.emit('message', username + ' says: '+ text);/*The code above says to emit the textual message to the server instead of performing our temporary alert behaviour.*/
-		$('#message').val(''); /* The second line in the code simply clears the input so that another message can be typed by the same user.*/	
-		return false;
-	});
+
+$('.messagearea').submit(function(e){
+	e.preventDefault();
+	var text = $('#message').val();
+	socket.emit('message', socket.user + ' says: '+ text);/*The code above says to emit the textual message to the server instead of performing our temporary alert behaviour.*/
+	$('#message').val(''); /* The second line in the code simply clears the input so that another message can be typed by the same user.*/	
+	return false;
 });
 
 socket.on('message', function(msg){
