@@ -1,4 +1,5 @@
 var socket = io(); /*This is saying that socket is now a reference to the Socket.IO library.*/
+$('#history').hide();
 $('.messagearea').hide();
 
 $('.userform').submit(function(e) {
@@ -7,6 +8,7 @@ $('.userform').submit(function(e) {
 	socket.emit('login', username, function(usernames) {
 		if (usernames){
 			$('.userform').fadeOut();
+			$('#history').show();
 			$('.messagearea').show();
 			socket.user = username;
 		}else{
@@ -15,7 +17,6 @@ $('.userform').submit(function(e) {
 	});
 	return false;
 });
-
 
 $('.messagearea').submit(function(e){
 	e.preventDefault();
@@ -27,4 +28,8 @@ $('.messagearea').submit(function(e){
 
 socket.on('message', function(msg){
 	$('<li>').text(msg).appendTo('#history');
+});
+
+socket.on('user left', function(number_of_ppl){
+	$('<li>').text("Someone left. There is " + number_of_ppl + " user(s) in the chat.").appendTo('#history');
 });

@@ -17,6 +17,7 @@ io.on('connection', function(socket){
 		} else{
 			callback(true);
 			user_log.push(username);
+			socket.user = username;
 		}
 	});
 });
@@ -24,6 +25,13 @@ io.on('connection', function(socket){
 io.on('connection', function(socket){
 	socket.on('message', function(msg){
 		io.emit('message', msg);
+	});
+});
+
+io.on('connection', function(socket){
+	socket.on('disconnect', function(){
+		user_log.splice(user_log.indexOf(socket.user), 1);
+		io.emit('user left', user_log.length);
 	});
 });
 
