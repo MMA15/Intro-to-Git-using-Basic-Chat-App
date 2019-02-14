@@ -1,0 +1,25 @@
+{
+  "name": "Intro-to-Git-using-Basic-Chat-App",
+  "version": "1.0.0",
+  "description": "Introduction to Git and Web Development - Basic Chat App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MMA15/Intro-to-Git-using-Basic-Chat-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MMA15/Intro-to-Git-using-Basic-Chat-App/issues"
+  },
+  "homepage": "https://github.com/MMA15/Intro-to-Git-using-Basic-Chat-App#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
+  }
+}
